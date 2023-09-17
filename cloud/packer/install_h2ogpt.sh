@@ -12,4 +12,4 @@ fi
 git checkout $BRANCH_TAG
 
 # Setup h2oGPT
-./docker_build_script_ubuntu.sh
+./install_system_dependencies.sh
