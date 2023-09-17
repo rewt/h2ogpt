@@ -1,6 +1,9 @@
 #!/bin/bash -e
 
+# Update package list
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y update
+
+# Install combined set of packages
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
   git \
   software-properties-common \
@@ -13,7 +16,24 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
   gnupg2 \
   ca-certificates \
   lsb-release \
-  ubuntu-keyring
+  ubuntu-keyring \
+  vim \
+  libmagic-dev \
+  poppler-utils \
+  tesseract-ocr \
+  libtesseract-dev \
+  libreoffice \
+  autoconf \
+  libtool
+
+# Run system upgrades
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
+
+# Install conda
+wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
+mkdir -p /h2ogpt_conda
+bash ./Miniconda3-py310_23.1.0-1-Linux-x86_64.sh -b -u -p /h2ogpt_conda
+conda install python=3.10 pygobject weasyprint -c conda-forge -y
 
 curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
