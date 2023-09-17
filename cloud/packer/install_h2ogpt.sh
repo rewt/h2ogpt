@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PATH=$PATH:/home/ubuntu/.local/bin
-git clone https://github.com/h2oai/h2ogpt.git
+git clone https://github.com/rewt/h2ogpt.git
 cd h2ogpt
 
 if [ -z "$BRANCH_TAG" ]; then
