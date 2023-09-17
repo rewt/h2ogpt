@@ -25,10 +25,10 @@ export CUDA_HOME=/usr/local/cuda-11.8
 # apt-get upgrade -y
 
 # # Install conda
-wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh && \
-    mkdir -p /h2ogpt_conda && \
-    bash ./Miniconda3-py310_23.1.0-1-Linux-x86_64.sh -b -u -p /h2ogpt_conda && \
-    conda install python=3.10 pygobject weasyprint -c conda-forge -y
+# wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh && \
+#     mkdir -p /h2ogpt_conda && \
+#     bash ./Miniconda3-py310_23.1.0-1-Linux-x86_64.sh -b -u -p /h2ogpt_conda && \
+#     conda install python=3.10 pygobject weasyprint -c conda-forge -y
 
 # Install base python dependencies
 python3.10 -m pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu118
